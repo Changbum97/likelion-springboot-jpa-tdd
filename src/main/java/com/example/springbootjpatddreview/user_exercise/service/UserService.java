@@ -35,6 +35,14 @@ public class UserService {
     }
 
     public UserResponse addUser(UserAddRequest request) {
+
+        // Username이 중복되면 가입 못하게 처리
+        if(userRepository.findByUsername(request.getUsername()).isPresent()) {
+            return UserResponse.builder()
+                    .message("해당 username은 중복입니다.")
+                    .build();
+        }
+
         User newUser = User.builder()
                 .username(request.getUsername())
                 .password(request.getPassword())
