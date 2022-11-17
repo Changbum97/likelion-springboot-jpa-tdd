@@ -1,6 +1,7 @@
 package com.example.springbootjpatddreview.user_exercise.service;
 
-import com.example.springbootjpatddreview.user_exercise.domain.dto.UserFindResponse;
+import com.example.springbootjpatddreview.user_exercise.domain.dto.UserAddRequest;
+import com.example.springbootjpatddreview.user_exercise.domain.dto.UserResponse;
 import com.example.springbootjpatddreview.user_exercise.domain.entity.User;
 import com.example.springbootjpatddreview.user_exercise.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -16,10 +17,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserFindResponse findSingleUser(Long id) {
+    public UserResponse findSingleUser(Long id) {
         Optional<User> optUser = userRepository.findById(id);
         if(optUser.isEmpty()) {
-            return UserFindResponse.builder()
+            return UserResponse.builder()
                     .message("해당 id의 user가 없습니다")
                     .build();
         }
@@ -27,9 +28,24 @@ public class UserService {
         User findUser = optUser.get();
 
         // User -> UserFindResponse로 변환해서 return
-        return UserFindResponse.builder()
+        return UserResponse.builder()
                 .id(findUser.getId())
                 .username(findUser.getUsername())
+                .build();
+    }
+
+    public UserResponse addUser(UserAddRequest request) {
+        User newUser = User.builder()
+                .username(request.getUsername())
+                .password(request.getPassword())
+                .build();
+
+        User savedUser = userRepository.save(newUser);
+
+        return UserResponse.builder()
+                .id(savedUser.getId())
+                .username(savedUser.getUsername())
+                .message("가입이 완료 되었습니다.")
                 .build();
     }
 }
