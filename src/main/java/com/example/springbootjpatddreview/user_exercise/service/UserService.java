@@ -31,6 +31,7 @@ public class UserService {
         return UserResponse.builder()
                 .id(findUser.getId())
                 .username(findUser.getUsername())
+                .message(id + "번 회원 조회 성공")
                 .build();
     }
 

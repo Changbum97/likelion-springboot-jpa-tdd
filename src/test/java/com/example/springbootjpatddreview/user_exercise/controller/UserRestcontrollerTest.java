@@ -32,7 +32,7 @@ class UserRestcontrollerTest {
     void getUserTest() throws Exception {
 
         UserResponse expectedResponse = UserResponse.builder()
-                .id(1L).username("User").build();
+                .id(1L).username("User").message("1번 회원 조회 성공").build();
 
         given(userService.findSingleUser(1L)).willReturn(expectedResponse);
 
@@ -40,7 +40,7 @@ class UserRestcontrollerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(1L))
                 .andExpect(jsonPath("$.username").value("User"))
-                .andExpect(jsonPath("$.message").isEmpty())
+                .andExpect(jsonPath("$.message").value("1번 회원 조회 성공"))
                 .andDo(print());
 
         verify(userService).findSingleUser(1L);
