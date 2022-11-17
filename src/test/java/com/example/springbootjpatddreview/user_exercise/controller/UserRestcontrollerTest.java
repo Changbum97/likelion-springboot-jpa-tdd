@@ -45,4 +45,22 @@ class UserRestcontrollerTest {
 
         verify(userService).findSingleUser(1L);
     }
+
+    @Test
+    @DisplayName("GET Wrong Single User Test")
+    void getWrongUserTest() throws Exception {
+        UserResponse expectedResponse = UserResponse.builder()
+                .message("해당 id의 user가 없습니다").build();
+
+        given(userService.findSingleUser(100L)).willReturn(expectedResponse);
+
+        mockMvc.perform(get("/api/v1/users/100"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").isEmpty())
+                .andExpect(jsonPath("$.username").isEmpty())
+                .andExpect(jsonPath("$.message").value("해당 id의 user가 없습니다"))
+                .andDo(print());
+
+        verify(userService).findSingleUser(100L);
+    }
 }
