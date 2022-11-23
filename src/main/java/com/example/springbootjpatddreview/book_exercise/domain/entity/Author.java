@@ -1,4 +1,4 @@
-package com.jpa.exercies.book_exercise.domain.entity;
+package com.example.springbootjpatddreview.book_exercise.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

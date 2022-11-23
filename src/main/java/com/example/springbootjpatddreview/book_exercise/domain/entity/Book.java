@@ -1,6 +1,6 @@
-package com.jpa.exercies.book_exercise.domain.entity;
+package com.example.springbootjpatddreview.book_exercise.domain.entity;
 
-import com.jpa.exercies.book_exercise.domain.dto.BookResponseDto;
+import com.example.springbootjpatddreview.book_exercise.domain.dto.BookResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

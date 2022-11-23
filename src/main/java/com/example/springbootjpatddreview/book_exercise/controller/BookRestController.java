@@ -1,16 +1,13 @@
-package com.jpa.exercies.book_exercise.controller;
+package com.example.springbootjpatddreview.book_exercise.controller;
 
-import com.jpa.exercies.book_exercise.domain.dto.BookResponseDto;
-import com.jpa.exercies.book_exercise.domain.entity.Book;
-import com.jpa.exercies.book_exercise.repository.BookRepository;
-import com.jpa.exercies.book_exercise.service.BookService;
+import com.example.springbootjpatddreview.book_exercise.domain.dto.BookResponseDto;
+import com.example.springbootjpatddreview.book_exercise.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
