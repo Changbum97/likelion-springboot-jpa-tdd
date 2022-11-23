@@ -19,7 +19,7 @@ public class BookService {
         List<BookResponseDto> dtoList = new ArrayList<>();
 
         for(Book book : books) {
-            dtoList.add(book.toDto());
+            dtoList.add(BookResponseDto.of(book));
         }
 
         return dtoList;
