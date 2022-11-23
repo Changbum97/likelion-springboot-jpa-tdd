@@ -14,14 +14,14 @@ public class HospitalResponseDto {
     private Long id;
     private String hospitalName;
     private String roadNameAddress;
-    private List<ReviewDto> reviews;
+    private List<Review> reviews;
 
     public static HospitalResponseDto of(Hospital hospital) {
         return HospitalResponseDto.builder()
                 .id(hospital.getId())
                 .hospitalName(hospital.getHospitalName())
                 .roadNameAddress(hospital.getRoadNameAddress())
-                .reviews( ReviewDto.of(hospital.getReviews()) )
+                .reviews(hospital.getReviews())
                 .build();
     }
 }

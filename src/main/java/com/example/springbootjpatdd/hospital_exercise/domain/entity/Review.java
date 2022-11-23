@@ -1,5 +1,6 @@
 package com.example.springbootjpatdd.hospital_exercise.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Review {
     private String patientName;
 
     @ManyToOne
+    @JsonIgnore
     private Hospital hospital;
 
 }
