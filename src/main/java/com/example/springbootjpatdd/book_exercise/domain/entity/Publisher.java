@@ -18,6 +18,6 @@ public class Publisher {
 
     private String name;
 
-    @OneToMany(mappedBy = "publisher")
-    private List<Book> books;
+    //@OneToMany(mappedBy = "publisher")
+    //private List<Book> books;
 }
