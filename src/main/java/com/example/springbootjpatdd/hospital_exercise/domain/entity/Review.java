@@ -21,6 +21,7 @@ public class Review {
     private String patientName;
 
     @ManyToOne
+    @JoinColumn(name = "hospital_id")
     @JsonIgnore
     private Hospital hospital;
 
