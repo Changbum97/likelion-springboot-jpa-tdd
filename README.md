@@ -15,6 +15,9 @@
   - author, publisher에는 매핑 필요 X (단방향이기 때문)
 
 ## hospital_exercise
+
+### Day 1 (11/23 수)
+
 - hospital, review 연관관계 매핑 예제
 - hospital : review = 1 : N
 - hospital을 조회하면 review의 title, content, patientName까지 출력
@@ -23,3 +26,9 @@
   - review에는 @ManyToOne, @JoinColumn 추가
   - N + 1 문제 방지를 위해 FetchType.LAZY 적용
   - 순환 참조 방지를 위해 Review의 hospital에 @JsonIgnore 추가
+
+### Day 2 (11/24 목)
+
+- Review 등록 API 구현
+- Review 하나 조회 API 구현
+- Swagger 3.0 적용
