@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,5 +25,12 @@ public class HospitalService {
         }
 
         return dtoList;
+    }
+
+    public HospitalResponseDto findOne(Long hospitalId) {
+        Optional<Hospital> optionalHospital = hospitalRepository.findById(hospitalId);
+        if(optionalHospital.isEmpty()) return null;
+
+        return HospitalResponseDto.of(optionalHospital.get());
     }
 }

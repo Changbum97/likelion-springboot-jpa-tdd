@@ -8,6 +8,8 @@ import com.example.springbootjpatdd.hospital_exercise.repository.ReviewRepositor
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -20,5 +22,12 @@ public class ReviewService {
         Hospital hospital = hospitalRepository.findById(hospitalId).get();
         Review savedReview = reviewRepository.save(requestDto.toEntity(hospital));
         return savedReview.getId();
+    }
+
+    public Review findOne(Long reviewId) {
+        Optional<Review> optionalReview = reviewRepository.findById(reviewId);
+        if(optionalReview.isEmpty()) return null;
+
+        return optionalReview.get();
     }
 }
