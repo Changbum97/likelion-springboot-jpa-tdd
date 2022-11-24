@@ -35,7 +35,7 @@ public class HospitalRestController {
         return savedReviewId + "번 리뷰 등록 완료";
     }
 
-    @GetMapping("/review/{reviewId}")
+    @GetMapping("/reviews/{reviewId}")
     public ResponseEntity<Review> getReview(@PathVariable Long reviewId) {
         return ResponseEntity.ok().body(reviewService.findOne(reviewId));
     }
