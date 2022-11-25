@@ -15,7 +15,6 @@ import java.util.List;
 public class HospitalRestController {
 
     private final HospitalService hospitalService;
-    private final ReviewService reviewService;
 
     @GetMapping("/list")
     public ResponseEntity<List<HospitalResponseDto>> getHospitalList() {

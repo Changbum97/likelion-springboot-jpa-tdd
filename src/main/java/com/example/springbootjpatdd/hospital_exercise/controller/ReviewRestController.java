@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/reviews")
 @RequiredArgsConstructor
-public class ReviewApiController {
+public class ReviewRestController {
 
     private final ReviewService reviewService;
 
