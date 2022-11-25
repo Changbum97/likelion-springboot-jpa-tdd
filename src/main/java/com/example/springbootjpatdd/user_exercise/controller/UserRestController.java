@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/users")
-public class UserApiController {
+public class UserRestController {
 
     private final UserService userService;
 
-    public UserApiController(UserService userService) {
+    public UserRestController(UserService userService) {
         this.userService = userService;
     }
 
