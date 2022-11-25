@@ -1,6 +1,7 @@
 package com.example.springbootjpatdd.hospital_exercise.controller;
 
 import com.example.springbootjpatdd.hospital_exercise.domain.dto.ReviewRequestDto;
+import com.example.springbootjpatdd.hospital_exercise.domain.dto.ReviewResponseDto;
 import com.example.springbootjpatdd.hospital_exercise.domain.entity.Review;
 import com.example.springbootjpatdd.hospital_exercise.service.ReviewService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,8 @@ public class ReviewRestController {
     }
 
     @GetMapping("/{reviewId}")
-    public ResponseEntity<Review> getReview(@PathVariable Long reviewId) {
-        return ResponseEntity.ok().body(reviewService.findOne(reviewId));
+    public ResponseEntity<ReviewResponseDto> getReview(@PathVariable Long reviewId) {
+        Review review = reviewService.findOne(reviewId);
+        return ResponseEntity.ok().body(ReviewResponseDto.fromEntity(review));
     }
 }
